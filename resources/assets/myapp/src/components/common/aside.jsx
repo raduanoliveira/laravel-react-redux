@@ -14,10 +14,10 @@ class Aside extends Component {
         let userPhoto;
         if (process.env.NODE_ENV == 'development') {
             //DEV IMPLEMENTATION
-            adminLogo = require('path_images/images/adminlte.png').default
+            adminLogo = require('path_images/default/adminlte.png').default
             userPhoto = require('path_images/' + currentUser.photo).default
         }else{
-            adminLogo = consts.IMAGE + 'images/adminlte.png'
+            adminLogo = consts.IMAGE + 'default/adminlte.png'
             userPhoto =  consts.IMAGE + currentUser.photo
         }
 
