@@ -1,0 +1,27 @@
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+.box {
+    float: left;
+    padding: 5px;
+    border: solid 1px;
+    margin-left: 3px;
+    border-radius: .25rem;
+}
+
+.box-admin {
+    background-color: #3C4F76;
+    border-color: #383F51;
+    color: white;
+}
+
+.box-user {
+    background-color: #A0AF84;
+    border-color: #668F80;
+    color: white;
+}
