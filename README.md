@@ -9,24 +9,19 @@ This repository is a SPA using Laravel 7 in backend and React.JS 16 in frontend.
 ## Features
 
 ### Backend
-Laravel 7: Back-end server framework.
-Eloquent: Object Relational Mapper
-Passport: OAuth2 server and API authentication package
+-   **[Laravel 7.x](https://laravel.com/docs/7.x/installation)**: Back-end server framework.
+-   **[Eloquent](https://laravel.com/docs/7.x/eloquent)**: Object Relational Mapper
+-   **[Passport](https://laravel.com/docs/7.x/passport)**: OAuth2 server and API authentication package
 
 ### Frontend
 
-React 16: Front-end framework.
-Redux 4: React state management.
-Redux-form 8: A higher order component decorator for forms using Redux and React.
-React Router v5: Declerative routing.
-Redux-thunk: async Redux action.
-Babel 7: Support ES8 syntax.
-Boostrap 4: Front-end UI kit.
-Webpack: module bundler.
-Axios: library used to make HTTP requests.
-Casl 4: User permissions manager
-Universal-cookie: Cookie manager
-Webpack-dev-server: Hot Module Replacement.
+-   **[React](https://pt-br.reactjs.org/)**: Front-end framework.
+-   **[Redux](https://redux.js.org/introduction/getting-started)**: React state management.
+-   **[Redux-Form](https://redux-form.com/8.3.0/)**: A higher order component decorator for forms using Redux and React.
+-   **[Babel](https://babeljs.io/)**: Support ES8 syntax.
+-   **[Boostrap](https://getbootstrap.com/)**: Front-end UI kit.
+-   **[Webpack](https://webpack.js.org/)**: Module bundler.
+-   **[Casl](https://github.com/stalniy/casl)**:User permissions manager
 
 
 ### How to deploy
