@@ -28,9 +28,9 @@ This repository is a SPA using Laravel 7 in backend and React.JS 16 in frontend.
 
 Environment prerequisites
 
-php >= 7.2
-Composer
-MySQL
+php >= 7.2  
+Composer  
+MySQL  
 
 ##### Cloning repository and install dependencies
 
