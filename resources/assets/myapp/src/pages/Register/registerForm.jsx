@@ -25,7 +25,7 @@ class RegisterForm extends Component {
                 <div className='register-page nimbus-is-editor'>
                     <div className='register-box'>
                         <div className='register-logo'>
-                            <a href='/' onClick={(event) => { event.preventDefault() }}><b>React</b>Admin</a>
+                            <a href='/' onClick={(event) => { event.preventDefault() }}><b>Laravel</b>+React</a>
                         </div>
                         <div className='card'>
                             <div className='card-body register-card-body'>

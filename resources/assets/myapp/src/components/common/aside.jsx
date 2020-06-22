@@ -26,7 +26,7 @@ class Aside extends Component {
 
                 <Link to='home' className='brand-link'>
                     <img src={adminLogo} alt="Logo" className="brand-image img-circle elevation-3" />
-                    <span className='brand-text font-weight-light'>React Admin</span>
+                    <span className='brand-text font-weight-light'><b>Laravel</b>+React</span>
                 </Link>
 
                 <div className="sidebar">

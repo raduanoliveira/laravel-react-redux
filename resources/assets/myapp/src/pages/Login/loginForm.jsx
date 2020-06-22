@@ -28,7 +28,7 @@ class LoginForm extends Component {
                 <div className='login-page'>
                     <div className='login-box'>
                         <div className='login-logo'>
-                            <a href='/' onClick={(event) => { event.preventDefault() }}><b>React</b>Admin</a>
+                            <a href='/' onClick={(event) => { event.preventDefault() }}><b>Laravel</b>+React</a>
                         </div>
                         <div className='card'>
                             <div className='card-body login-card-body'>
