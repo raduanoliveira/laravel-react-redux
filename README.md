@@ -21,7 +21,8 @@ This repository is a SPA using Laravel 7 in backend and React.JS 16 in frontend.
 -   **[Babel](https://babeljs.io/)**: Support ES8 syntax.
 -   **[Boostrap](https://getbootstrap.com/)**: Front-end UI kit.
 -   **[Webpack](https://webpack.js.org/)**: Module bundler.
--   **[Casl](https://github.com/stalniy/casl)**:User permissions manager
+-   **[Casl](https://github.com/stalniy/casl)**: User permissions manager
+-   **[AdminLte 3](https://adminlte.io/themes/v3/index.html)**: Responsive administration template
 
 
 ### How to deploy
