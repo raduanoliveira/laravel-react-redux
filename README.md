@@ -93,6 +93,13 @@ Run storage (to create a symbolic link in public folder to /storage/app)
 php artisan storage:link
 ```
 
+Generate a key to application
+
+```sh
+php artisan key:generate
+```
+
+
 Deployment is ready to run
 
 ```sh
