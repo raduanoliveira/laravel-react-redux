@@ -27,18 +27,11 @@ class AuthController extends Controller
             'password' => 'required|string|min:6|confirmed'
         ]);
 
-        $user = new User([
-            'name' => $request->name,
-            'email' => $request->email,
-            'photo' => $photo_default,
-            'password' => bcrypt($request->password)
-        ]);
-
-        $user->save();
+        $users = new User();
+        $user = $users->createUser($request->name,$request->email,$photo_default,$request->password);
 
         $roles = new Role();
-        $role = $roles::where('name','user')->first();
-        $user->roles()->attach($role->id);
+        $roles->assignRole($user, 'user');
 
         return response()->json([
             'res' => 'User created successfully', 201
