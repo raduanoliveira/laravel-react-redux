@@ -27,18 +27,18 @@ class UserController extends Controller
 
     public function get(Request $request)
     {
-        $user = User::with('roles')->find($request->user()->id);
-        return $user;
+        $user = new User();
+        return $user->getUserAndRoles($request->user()->id);
     }
 
-    public function getUsers(Request $request)
+    public function getUsers()
     {
         $users = new User();
         $roles = new Role();
 
         return response()->json([
-            'users' => $users->with('roles')->get(),
-            'roles' => $roles->pluck('name')->toArray()
+            'users' => $users->getAllUsersAndRoles(),
+            'roles' => $roles->getRoleNames()
         ]);
     }
 
@@ -99,11 +99,8 @@ class UserController extends Controller
         $request->validate([
             'password' => 'required|string|min:6|confirmed'
         ]);
-        $user = User::find($id);
-        if (isset($user)) {
-            $user->password =  bcrypt($request->password);
-        }
-        $user->save();
+        $users = new User();
+        $user = $users->changePassword($id,$request->password );
         return response($user->id);
     }
 
@@ -115,43 +112,9 @@ class UserController extends Controller
             'email' => 'required|string|email|' . Rule::unique('users')->ignore($id),
         ]);
 
-
-        $photo_default = Config::get('constants.default_photo_user_path');
-        $user = User::find($id);
-        if (isset($user)) {
-            $user->name = $request->input('name');
-            $user->email = $request->input('email');
-
-            if ($request->hasFile('photo')) {
-                $path = $request->file('photo')->store('images', 'public');
-                
-                if($user->photo != $photo_default){
-                    Storage::disk('public')->delete($user->photo);
-                }
-                
-                $user->photo = $path;
-            }
-
-            if ($request->roles_update) {
-                $isAdmin = $user->roles()->where('name', 'admin')->get();
-                $roles = new Role();
-                $role = $roles::where('name', 'admin')->first();
-
-                if (in_array('admin', $request->roles_update)) {
-                    if (count($isAdmin) === 0) {
-                        $user->roles()->attach($role->id);
-                    }
-                } else {
-                    if ($isAdmin) {
-                        $user->roles()->detach($role->id);
-                    }
-                }
-            }
-
-            $user->save();
-            return response($user->id, 200);
-        }
-        return response('User not found', 404);
+        $users = new User();
+        return $users->updateUser($id, $request);
+        
     }
 
     /**
@@ -162,16 +125,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $photo_default = Config::get('constants.default_photo_user_path');
-        $user = User::find($id);
-        if (isset($user)) {
-            
-            if($user->photo != $photo_default){
-                Storage::disk('public')->delete($user->photo);
-            }
-            $user->roles()->detach();
-            $user->delete();
-        }
+        $users = new User();
+        return $users->deleteUser($id);
 
     }
 }

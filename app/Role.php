@@ -18,7 +18,19 @@ class Role extends Model
         return $role;
     }
 
-    public function removeRole()
+    public function removeRole($user, $role)
     {
+        $role = $this->where('name',$role)->first();
+        $user->roles()->detach($role->id);
+
+        return $role;
+    }
+    
+    public function checkUserPermission($user,$role){
+        return $user->roles()->where('name', $role)->get();
+    }
+
+    public function getRoleNames(){
+        return Role::pluck('name')->toArray();
     }
 }
